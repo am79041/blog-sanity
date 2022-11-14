@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.0",
     "dotenv": "^16.0.3",
     "flat-color-icons": "^1.1.0",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
     "next": "12.1.6",
     "prettier-plugin-tailwindcss": "^0.1.11",
+    "prismjs": "^1.29.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.3.1",

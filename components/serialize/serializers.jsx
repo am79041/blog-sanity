@@ -1,5 +1,5 @@
-import Links from "./components/Links";
-import Code from "./components/Code";
+import Code from "./Code";
+import Links from "./Links";
 
 const serializers = {
   marks: {

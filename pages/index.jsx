@@ -7,7 +7,7 @@ export default function Home({ posts }) {
       {posts.map((post) => (
         <section
           className="flex justify-between gap-x-3 my-12 items-center"
-          key={post._id}
+          key={posts._id}
         >
           <div className="flex flex-col">
             <h2 className="sm:text-xl">{post.title}</h2>

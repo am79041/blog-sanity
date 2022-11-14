@@ -1,8 +1,5 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {
-  atomOneDark,
-  dracula,
-} from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 export default function Code({ value }) {
   return (
