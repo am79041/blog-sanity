@@ -1,4 +1,4 @@
-import { client } from "../sanity";
+import { client } from "../backend/sanity";
 import Img from "next/image";
 
 export default function Home({ posts }) {
