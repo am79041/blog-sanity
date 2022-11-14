@@ -6,7 +6,7 @@ export default function Code({ value }) {
     <SyntaxHighlighter
       style={dracula}
       customStyle={{
-        fontSize: "14px",
+        fontSize: "16px",
         padding: "20px",
         borderRadius: "8px",
       }}
