@@ -4,7 +4,7 @@ import Img from "next/image";
 
 export default function Blog({ posts }) {
   return (
-    <article className="prose prose-2xl prose-white dark:prose-invert grid sm:grid-cols-2 m-auto gap-5 sm:p-[2rem] p-[1rem] ">
+    <article className="prose prose-2xl dark:prose-invert grid sm:grid-cols-2 m-auto gap-5 sm:p-[2rem] p-[1rem] ">
       {posts.map((post) => (
         <div key={post._id} className="flex flex-col">
           <Link href={`/blog/${post.slug.current}`}>
@@ -13,10 +13,13 @@ export default function Blog({ posts }) {
               alt={post.postImage.alt}
               width={300}
               height={200}
-              className="rounded-md"
+              className="rounded-md cursor-pointer"
             />
           </Link>
-          <a className="text-lg text-center font-semibold cursor-pointer no-underline">
+          <a
+            href={`/blog/${post.slug.current}`}
+            className="text-lg text-center font-semibold cursor-pointer no-underline"
+          >
             {post.title}
           </a>
         </div>

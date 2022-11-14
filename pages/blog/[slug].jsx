@@ -13,7 +13,7 @@ export default function Post({ post }) {
   return (
     post && (
       <>
-        <article className="prose prose-lg prose-white dark:prose-invert m-auto p-[1rem]">
+        <article className="prose prose-lg dark:prose-invert m-auto p-[1rem] font-nun">
           <Meta {...post} />
           <Title {...post} />
           <Author {...post} />

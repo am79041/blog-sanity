@@ -3,7 +3,7 @@ import Img from "next/image";
 export default function Title({ title, postImage }) {
   return (
     <section className="lg:mt-[3rem]">
-      <h1 className="text-center font-extrabold ">{title}</h1>
+      <h1 className="text-center font-bold ">{title}</h1>
       <Img
         src={postImage.url}
         alt={postImage.alt}

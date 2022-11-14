@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { useDebugValue } from "react";
 
 export default function Document() {
   return (
@@ -12,7 +11,7 @@ export default function Document() {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
         <body>
