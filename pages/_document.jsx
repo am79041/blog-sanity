@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html>
+    <Html className="prose prose-lg dark:prose-invert m-auto">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

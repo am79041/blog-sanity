@@ -4,8 +4,9 @@ import { FcFlashAuto } from "react-icons/fc";
 
 export default function Navbar() {
   const { asPath } = useRouter();
-  const activeLink = "cursor-pointer px-4 text-red-300 no-underline";
-  const inactiveLink = "cursor-pointer px-4 no-underline";
+  const activeLink =
+    "cursor-pointer px-4 text-blue-300 no-underline hover:text-blue-400 hover:underline";
+  const inactiveLink = "cursor-pointer px-4 no-underline hover:underline";
 
   return (
     <section className="prose dark:prose-invert mx-auto my-12 px-[1rem] flex flex-row justify-between items-center md:text-lg text-[1rem]">

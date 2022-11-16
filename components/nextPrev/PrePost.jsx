@@ -4,21 +4,14 @@ export default function PrePost({ previousPost }) {
   return (
     <>
       {previousPost && (
-        <div className="flex flex-col">
-          <Img
-            src={previousPost.postImage.url}
-            alt={previousPost.postImage.alt}
-            width={240}
-            height={170}
-            className="rounded-md cursor-pointer"
-          />
+        <li className="list-none w-[40%] text-left">
           <a
-            className="no-underline text-md font-semibold cursor-pointer"
+            className="no-underline hover:underline text-blue-300 hover:text-blue-400 font-bold"
             href={previousPost.slug}
           >
-            {previousPost.title}
+            ← {previousPost.title}
           </a>
-        </div>
+        </li>
       )}
     </>
   );

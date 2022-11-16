@@ -1,27 +1,25 @@
 import { client } from "../../backend/sanity";
-import Link from "next/link";
-import Img from "next/image";
 
 export default function Blog({ posts }) {
   return (
-    <article className="prose prose-2xl dark:prose-invert grid sm:grid-cols-2 m-auto gap-5 sm:p-[2rem] p-[1rem] ">
+    <article className="sm:p-[2rem] p-[1rem]">
       {posts.map((post) => (
         <div key={post._id} className="flex flex-col">
-          <Link href={`/blog/${post.slug.current}`}>
-            <Img
-              src={post.postImage.url}
-              alt={post.postImage.alt}
-              width={300}
-              height={200}
-              className="rounded-md cursor-pointer"
-            />
-          </Link>
           <a
             href={`/blog/${post.slug.current}`}
-            className="text-lg text-center font-semibold cursor-pointer no-underline"
+            className="text-2xl text-left font-semibold cursor-pointer no-underline hover:underline hover:text-blue-300 "
           >
             {post.title}
           </a>
+          <p>{post.description}</p>
+          <a
+            href={`/blog/${post.slug.current}`}
+            className="no-underline w-fit p-2 rounded-md border-2 border-blue-400 text-sm"
+          >
+            {" "}
+            Continue Reading →
+          </a>
+          <hr />
         </div>
       ))}
     </article>
@@ -30,7 +28,7 @@ export default function Blog({ posts }) {
 
 export const getServerSideProps = async () => {
   const query = `*[_type=="post"]{
-       _id, title, _updatedAt, description, slug{current}, postImage{
+       _id, title, _updatedAt, description, slug {current}, postImage{
            "alt":alt,
            "url":asset->url
        }

@@ -3,26 +3,28 @@ import Img from "next/image";
 
 export default function Home({ posts }) {
   return (
-    <main className="w-[50%] m-auto">
-      {posts.map((post) => (
-        <section
-          className="flex justify-between gap-x-3 my-12 items-center"
-          key={posts._id}
-        >
-          <div className="flex flex-col">
-            <h2 className="sm:text-xl">{post.title}</h2>
-            <p className="text-[14px]">{post.description}</p>
-          </div>
-          <Img
-            src={post.postImage.url}
-            alt={post.postImage.alt}
-            width={150}
-            height={100}
-            className="rounded-md"
-          />
-        </section>
-      ))}
-    </main>
+    <>
+      <main className="w-[50%] m-auto">
+        {posts.map((post) => (
+          <section
+            className="flex justify-between gap-x-3 my-12 items-center"
+            key={posts._id}
+          >
+            <div className="flex flex-col">
+              <h2 className="sm:text-xl">{post.title}</h2>
+              <p className="text-[14px]">{post.description}</p>
+            </div>
+            <Img
+              src={post.postImage.url}
+              alt={post.postImage.alt}
+              width={150}
+              height={100}
+              className="rounded-md"
+            />
+          </section>
+        ))}
+      </main>
+    </>
   );
 }
 

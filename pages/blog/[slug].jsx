@@ -13,15 +13,15 @@ export default function Post({ post }) {
   return (
     post && (
       <>
-        <article className="prose prose-lg dark:prose-invert m-auto p-[1rem] font-nun">
+        <article className="m-auto p-4">
           <Meta {...post} />
           <Title {...post} />
           <Author {...post} />
           <PortableText value={post.body} components={serializers} />
-          <section className="my-10 grid sm:grid-cols-2 gap-5">
+          <div className="sm:text-lg flex justify-between">
             <PrePost {...post} />
             <NextPost {...post} />
-          </section>
+          </div>
         </article>
       </>
     )
