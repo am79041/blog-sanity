@@ -13,7 +13,7 @@ export default function Home({ posts }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const query = `*[_type == "post"] | order(_updatedAt desc){
     _id, _updatedAt, title, slug{current}, description, author->{
       "name":fullName,

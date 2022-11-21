@@ -1,13 +1,13 @@
 import PageNavigation from "./PageNavigation";
 
 export default function BlogPages({ posts, postCount, postId }) {
-  let props = {
+  const props = {
     postCount,
     postId,
   };
   return (
     <>
-      <article className="m-auto p-[1rem] sm:p-[2rem]">
+      <article className="m-auto p-6">
         {posts.map((post) => (
           <div key={post._id} className="flex flex-col">
             <a

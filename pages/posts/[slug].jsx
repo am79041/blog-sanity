@@ -19,7 +19,7 @@ export default function Post({ post }) {
           <Title {...post} />
           <Author {...post} />
           <PortableText value={post.body} components={serializers} />
-          <div className="flex justify-between px-4 sm:text-lg">
+          <div className="my-16 flex justify-between px-4 sm:text-lg">
             <span className="w-[40%] text-left">
               {post.previousPost && <PrePost {...post} />}
             </span>

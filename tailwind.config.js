@@ -9,7 +9,6 @@ module.exports = {
       fontFamily: {
         nun: "Nunito",
       },
-      typography: ({ theme }) => ({}),
     },
   },
   plugins: [require("@tailwindcss/typography")],

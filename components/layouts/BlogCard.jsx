@@ -1,5 +1,4 @@
 import Img from "next/image";
-import { BiBook } from "react-icons/bi";
 
 export default function BlogCard({ post }) {
   return (
