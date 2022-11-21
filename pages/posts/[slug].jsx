@@ -2,25 +2,30 @@ import { client } from "../../backend/sanity";
 import serializers from "../../components/serialize/serializers";
 import { PortableText } from "@portabletext/react";
 
-import PrePost from "../../components/nextPrev/PrePost";
-import NextPost from "../../components/nextPrev/NextPost";
+import PrePost from "../../components/layouts/PrePost";
+import NextPost from "../../components/layouts/NextPost";
 import Meta from "../../components/article/meta/Meta";
-import Title from "../../components/article/headingSec/Heading";
+import Title from "../../components/article/heading/Heading";
 import Author from "../../components/article/author/Author";
+
 import { query } from "../../backend/singlePostQuery";
 
 export default function Post({ post }) {
   return (
     post && (
       <>
-        <article className="m-auto p-4">
+        <article className="m-auto p-5">
           <Meta {...post} />
           <Title {...post} />
           <Author {...post} />
           <PortableText value={post.body} components={serializers} />
-          <div className="sm:text-lg flex justify-between">
-            <PrePost {...post} />
-            <NextPost {...post} />
+          <div className="flex justify-between px-4 sm:text-lg">
+            <span className="w-[40%] text-left">
+              {post.previousPost && <PrePost {...post} />}
+            </span>
+            <span className="w-[40%] text-right">
+              {post.nextPost && <NextPost {...post} />}
+            </span>
           </div>
         </article>
       </>

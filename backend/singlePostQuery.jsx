@@ -1,17 +1,9 @@
 export const query = `*[_type=="post" && slug.current == $slug][0]{
-        "previousPost" : *[_type=="post" && _updatedAt == ^._updatedAt][0]{
+        "previousPost" : *[_type=="post" && _updatedAt > ^._updatedAt] | order(_updatedAt asc)[0]{
           title, "slug" : slug.current,
-          postImage{
-            "alt":alt,
-            "url":asset->url
-          },
         },
-        "nextPost" : *[_type=="post" && _updatedAt > ^._updatedAt][0]{
+        "nextPost" : *[_type=="post" && _updatedAt < ^._updatedAt] | order(_updatedAt desc)[0]{
           title, "slug" : slug.current,
-          postImage{
-            "alt":alt,
-            "url":asset->url
-          },
         },
         _id, title, _createdAt, _updatedAt, description, 
         author->{
