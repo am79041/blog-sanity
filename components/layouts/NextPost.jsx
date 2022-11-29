@@ -1,7 +1,7 @@
 export default function NextPost({ nextPost }) {
   return (
     <a
-      className="font-bold text-blue-300 no-underline hover:text-blue-400 hover:underline"
+      className="text-[#1abc9c] no-underline hover:text-gray-700"
       href={nextPost.slug}
     >
       {nextPost.title} →

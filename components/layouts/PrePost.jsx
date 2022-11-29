@@ -3,7 +3,7 @@ import Img from "next/image";
 export default function PrePost({ previousPost }) {
   return (
     <a
-      className="font-bold text-blue-300 no-underline hover:text-blue-400 hover:underline"
+      className="text-[#1abc9c] no-underline hover:text-gray-700"
       href={previousPost.slug}
     >
       ← {previousPost.title}

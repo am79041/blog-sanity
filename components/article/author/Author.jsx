@@ -5,28 +5,21 @@ import readingTime from "reading-time";
 export default function Author({ author, _updatedAt, body }) {
   const stats = readingTime(body);
   return (
-    <>
-      {author && (
-        <section className="my-8 flex flex-col items-center justify-center gap-y-4 sm:flex-row sm:justify-between">
-          <div className="flex gap-x-4 items-center">
-            <Img
-              src={author.authorImg.asset.url}
-              width={50}
-              height={50}
-              loading="lazy"
-              className="rounded-full"
-            />
-            <span>{author.name}</span>
-          </div>
-          <div className="flex gap-x-4 items-center">
-            <span>{new Date(_updatedAt).toDateString()}</span>
-            <div className="flex gap-x-2 items-center">
-              <BiBook />
-              <span>{stats.text}</span>
-            </div>
-          </div>
-        </section>
-      )}
-    </>
+    <section className="flex items-center justify-between">
+      <div className="flex items-center gap-x-2">
+        <img
+          src={author.authorImg.asset.url}
+          className="h-10 w-10 rounded-full"
+          alt="ninja"
+          loading="lazy"
+        />
+        <span>{author.name}</span>
+      </div>
+      <div className="flex items-center gap-x-4">
+        <span>Published At {new Date(_updatedAt).toDateString("en-US")}</span>
+        <BiBook />
+        <span>{stats.text}</span>
+      </div>
+    </section>
   );
 }

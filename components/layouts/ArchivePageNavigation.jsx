@@ -1,6 +1,6 @@
-export default function PageNavigation({ postCount, postId }) {
+export default function ArchivePageNavigation({ postCount, postId }) {
   return (
-    <div className="flex flex-col gap-y-2 items-center">
+    <div className="flex flex-col items-center gap-y-2">
       <span>
         <a href={`/archive/${postId}`} className="no-underline">
           Page {postId} {"/"} {postCount}
@@ -10,7 +10,7 @@ export default function PageNavigation({ postCount, postId }) {
         {postId < postCount && (
           <a
             href={`/archive/${String(Number(postId) + 1)}`}
-            className="no-underline hover:text-blue-400 hover:underline"
+            className="text-[#1abc9c] no-underline hover:text-gray-700"
           >
             Older →
           </a>
@@ -18,7 +18,7 @@ export default function PageNavigation({ postCount, postId }) {
         {postId > 1 && (
           <a
             href={`/archive/${String(Number(postId) - 1)}`}
-            className="no-underline hover:text-blue-400 hover:underline"
+            className="text-[#1abc9c] no-underline hover:text-gray-700"
           >
             ← Newer
           </a>

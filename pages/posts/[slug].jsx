@@ -1,36 +1,13 @@
 import { client } from "../../backend/sanity";
-import serializers from "../../components/serialize/serializers";
-import { PortableText } from "@portabletext/react";
-
-import PrePost from "../../components/layouts/PrePost";
-import NextPost from "../../components/layouts/NextPost";
-import Meta from "../../components/article/meta/Meta";
-import Title from "../../components/article/heading/Heading";
-import Author from "../../components/article/author/Author";
-
-import { query } from "../../backend/singlePostQuery";
+import singlePostQuery from "../../backend/singlePostQuery";
+import SinglePostLayout from "../../components/layouts/SinglePostLayout";
+import { useRouter } from "next/router";
+import NextNProgress from "nextjs-progressbar";
 
 export default function Post({ post }) {
-  return (
-    post && (
-      <>
-        <article className="m-auto p-5">
-          <Meta {...post} />
-          <Title {...post} />
-          <Author {...post} />
-          <PortableText value={post.body} components={serializers} />
-          <div className="my-16 flex justify-between px-4 sm:text-lg">
-            <span className="w-[40%] text-left">
-              {post.previousPost && <PrePost {...post} />}
-            </span>
-            <span className="w-[40%] text-right">
-              {post.nextPost && <NextPost {...post} />}
-            </span>
-          </div>
-        </article>
-      </>
-    )
-  );
+  const { isFallback } = useRouter();
+  if (isFallback) return <NextNProgress color="#1abc9c" />;
+  return post && <SinglePostLayout post={post} />;
 }
 
 export const getStaticPaths = async () => {
@@ -44,7 +21,7 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params;
   const param = { slug };
 
-  const singlePost = await client.fetch(query, param);
+  const singlePost = await client.fetch(singlePostQuery, param);
   const notFound = !singlePost;
   return {
     props: {

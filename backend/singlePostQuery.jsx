@@ -1,11 +1,11 @@
-export const query = `*[_type=="post" && slug.current == $slug][0]{
+const singlePostQuery = `*[_type=="post" && slug.current == $slug][0]{
         "previousPost" : *[_type=="post" && _updatedAt > ^._updatedAt] | order(_updatedAt asc)[0]{
           title, "slug" : slug.current,
         },
         "nextPost" : *[_type=="post" && _updatedAt < ^._updatedAt] | order(_updatedAt desc)[0]{
           title, "slug" : slug.current,
         },
-        _id, title, _createdAt, _updatedAt, description, 
+        _id, title, _createdAt, _updatedAt, description, postLikes, postComments,
         author->{
         "name":fullName,
          authorImg{
@@ -31,3 +31,4 @@ export const query = `*[_type=="post" && slug.current == $slug][0]{
             }
            },
       }`;
+export default singlePostQuery;

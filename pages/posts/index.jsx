@@ -1,12 +1,12 @@
 import { client } from "../../backend/sanity";
-import BlogPages from "../../components/layouts/BlogPages";
+import ArchivePageLayout from "../../components/layouts/ArchivePageLayout";
 
 export default function Blog({ posts, postCount }) {
   const props = {
     posts,
     postCount,
   };
-  return <BlogPages {...props} />;
+  return <ArchivePageLayout {...props} />;
 }
 
 export const getServerSideProps = async () => {

@@ -2,12 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Inter;
+  src: url(../assets/fonts/Inter.var.woff2);
+}
+
+@layer components {
+  #navbar a {
+    @apply font-semibold text-white;
+  }
+  #navbar a:hover {
+    @apply text-black;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  background-color: #0f172a;
+  background-color: rgb(243, 243, 243);
+}
+textarea {
+  border-width: 1px;
+  border-color: rgb(55, 55, 55);
+  outline: none;
+}
+label {
+  font-weight: bolder;
 }

@@ -8,6 +8,7 @@ export default function Meta({ _id, title, description }) {
       <meta name="description" content={description} />
       <meta name="robots" content="all" />
       <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
     </Head>
   );
 }

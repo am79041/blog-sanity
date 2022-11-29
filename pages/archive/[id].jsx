@@ -1,19 +1,19 @@
 import { useRouter } from "next/router";
 import { client } from "../../backend/sanity";
 import NextNProgress from "nextjs-progressbar";
-import BlogPages from "../../components/layouts/BlogPages";
+import ArchivePageLayout from "../../components/layouts/ArchivePageLayout";
 
 const countQuery = `count(*[_type == "post"])`;
 const query = `*[_type == "post"] | order(_updatedAt desc) | [$lower_bound...$upper_bound]{
-  _id, title, slug {current}, description
+  _id, title, _updatedAt, slug {current}, description
 }`;
-const noOfPostPerPage = 3;
+const noOfPostPerPage = 10;
 
 export default function ArchivePage(props) {
   const { isFallback } = useRouter();
 
   if (isFallback) return <NextNProgress />;
-  return <BlogPages {...props} />;
+  return <ArchivePageLayout {...props} />;
 }
 
 export const getStaticPaths = async () => {
@@ -52,7 +52,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       posts,
-      postCount: (postCount + 1) / noOfPostPerPage,
+      postCount: Math.max(1, Math.floor((postCount + 1) / noOfPostPerPage)),
       postId: id,
     },
     notFound,

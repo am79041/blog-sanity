@@ -1,36 +1,24 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FcFlashAuto } from "react-icons/fc";
 
-export const activeLink =
-  "cursor-pointer px-4 text-white no-underline hover:text-blue-400 hover:underline";
-export const inactiveLink =
-  "cursor-pointer px-4 no-underline hover:underline hover:text-blue-300";
-
 export default function Navbar() {
-  const { asPath } = useRouter();
-
   return (
-    <section className="mx-auto my-12 flex flex-row items-center justify-between px-[1rem] text-[1rem] md:text-lg">
-      <Link href="/">
-        <a>
-          <FcFlashAuto className="h-8 w-8 cursor-pointer" />
-        </a>
-      </Link>
-      <nav className="flex flex-row items-center justify-between">
-        <Link href="/archive/1">
-          <a
-            className={
-              asPath.startsWith("/archive") || asPath.startsWith("/posts")
-                ? activeLink
-                : inactiveLink
-            }
-          >
-            {" "}
-            Blog
+    <section className="not-prose bg-blue-900 p-8 px-[1rem]">
+      <div
+        id="navbar"
+        className="m-auto flex w-1/2 flex-row justify-between text-[1rem] md:text-lg"
+      >
+        <Link legacyBehavior href="/">
+          <a>
+            <FcFlashAuto className="h-8 w-8 cursor-pointer" />
           </a>
         </Link>
-      </nav>
+        <nav className="flex w-3/5 justify-around text-[1rem] ">
+          <Link href={"/"}>HOME</Link>
+          <Link href="/archive/1">ARCHIVE</Link>
+          {/* <input type="text" className="rounded-sm px-4 text-sm text-black" /> */}
+        </nav>
+      </div>
     </section>
   );
 }

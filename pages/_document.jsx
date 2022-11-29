@@ -11,10 +11,10 @@ export default function Document() {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <body className="prose prose-lg m-auto font-nun dark:prose-invert">
+        <body className="prose m-auto max-w-none font-sans ">
           <Main />
           <NextScript />
         </body>
