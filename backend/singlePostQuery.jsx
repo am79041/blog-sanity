@@ -5,19 +5,8 @@ const singlePostQuery = `*[_type=="post" && slug.current == $slug][0]{
         "nextPost" : *[_type=="post" && _updatedAt < ^._updatedAt] | order(_updatedAt desc)[0]{
           title, "slug" : slug.current,
         },
-        _id, title, _createdAt, _updatedAt, description, postLikes, postComments,
-        author->{
-        "name":fullName,
-         authorImg{
-           asset->{
-            "url":url 
-           }
-          }
-        },
-        postImage{
-          "alt":alt,
-          "url":asset->url
-        },
+        _id, title, _updatedAt, description, 'tags' : tags[]->{_id, title,'slug':slug.current}, postLikes, postComments,
+        'author' : author->fullName,
           body[]{
             ...,
             markDefs[]{

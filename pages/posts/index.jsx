@@ -9,7 +9,7 @@ export default function Blog({ posts, postCount }) {
   return <ArchivePageLayout {...props} />;
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const query = `*[_type=="post"][0...2]{
        _id, title, _updatedAt, description, slug {current}, postImage{
            "alt":alt,

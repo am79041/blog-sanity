@@ -8,7 +8,7 @@ module.exports = {
       "lh3.googleusercontent.com",
     ],
   },
-  // experimental : {
-  //     allowMiddlewareResponseBody : true,
-  // }
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };

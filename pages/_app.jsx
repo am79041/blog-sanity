@@ -1,16 +1,21 @@
-import "../styles/globals.css";
-import Navbar from "../components/layouts/Navbar";
-import { SessionProvider } from "next-auth/react";
+import "../styles/globals.css"
+import Navbar from "../components/layouts/Navbar"
+import { ThemeProvider } from "next-themes"
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
     <>
-      <SessionProvider session={session}>
-        <Navbar />
-        <Component {...pageProps} />
-      </SessionProvider>
+      <main
+        className={`prose-md prose m-auto sm:p-2 p-4 dark:text-white`}
+      >
+        <ThemeProvider attribute="class">
+          <Navbar />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </main>
     </>
   );
 }
-
-export default MyApp;

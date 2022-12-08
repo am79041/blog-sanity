@@ -7,28 +7,36 @@
   src: url(../assets/fonts/Inter.var.woff2);
 }
 
-@layer components {
-  #navbar a {
-    @apply font-semibold text-white;
+@layer base {
+  a:link, a:visited{
+    @apply no-underline text-pink-700 dark:text-pink-500 hover:underline hover:text-pink-800;
   }
-  #navbar a:hover {
-    @apply text-black;
+  input {
+    dark:text-[#f6f6f6]
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply dark:text-[#f6f6f6]
   }
 }
+
+@layer components {
+  #commentForm input, textarea{
+    @apply border-2 border-gray-300 dark:border-none
+  }
+}
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: rgb(243, 243, 243);
+.hide {
+  display: none;
 }
-textarea {
-  border-width: 1px;
-  border-color: rgb(55, 55, 55);
-  outline: none;
-}
-label {
-  font-weight: bolder;
+.show {
+  display: block;
 }
